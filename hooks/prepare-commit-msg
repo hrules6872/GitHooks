@@ -1,0 +1,10 @@
+#!/bin/sh
+
+ME=`basename "$0"` 
+
+for file in $ME-hooks/*; do
+  sh "$file"
+  if [ $? -ne 0 ]; then
+    exit 1
+  fi
+done
